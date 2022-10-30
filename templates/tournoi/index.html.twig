@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des tournois{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+
+
+<h1>List des événements et des tournois</h1>
+<ul>
+    {% for e in evts %}
+    <li><h2>{{ e.nom }}</h2></li>
+    <ul>
+        {% for t in e.tournois %}
+        <li><em>{{ t.nom }}</em>({{ t.description }})</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</ul>
+{% endblock %}

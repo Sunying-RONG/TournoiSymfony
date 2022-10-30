@@ -14,13 +14,16 @@ class Tournoi
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'tournois')]
+    #[ORM\ManyToOne(inversedBy: 'tournois', cascade: 'persist')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\Type(Evenement::class)]
+    #[Assert\NotBlank]
     private ?Evenement $ev = null;
 
     public function getId(): ?int
