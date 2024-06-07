@@ -11,6 +11,3 @@ $bin/console doctrine:migrations:migrate
 $composer req twig
 
 $bin/console make:controller Tournoi
-
-form  
-composer req form validator  
